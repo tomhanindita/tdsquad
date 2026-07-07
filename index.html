@@ -1,1 +1,1321 @@
 
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagian Transmisi & Distribusi - Portfolio</title>
+
+    <!-- Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette Warna Premium */
+            --primary: #0a1128;
+            --secondary: #00bfff;
+            --accent: #ffd700;
+            --danger: #ff6b6b;
+            --success: #22c55e;
+            --light: #ffffff;
+            --dark: #1a1f3a;
+            --text-gray: #6c757d;
+            --text-light: #b8bcc9;
+
+            --bg-gradient: linear-gradient(135deg, #f8f9fc 0%, #eff2f9 100%);
+            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --card-hover-shadow: 0 20px 50px rgba(0, 191, 255, 0.2);
+            --premium-gradient: linear-gradient(135deg, #00bfff 0%, #0099cc 100%);
+            --gold-gradient: linear-gradient(135deg, #ffd700 0%, #fdb931 100%);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            letter-spacing: 0.3px;
+        }
+
+        /* --- Navbar Glassmorphism --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(0, 191, 255, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 900;
+            color: var(--primary) !important;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            background: var(--premium-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar-brand i {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            color: var(--dark) !important;
+            font-weight: 600;
+            font-size: 0.92rem;
+            margin: 0 8px;
+            padding: 0.6rem 1.2rem !important;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--premium-gradient);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: calc(100% - 24px);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary) !important;
+            background: rgba(0, 191, 255, 0.1);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2847 100%);
+            color: white;
+            padding: 160px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.8;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.6;
+        }
+
+        .hero-content h1 {
+            font-weight: 900;
+            font-size: 3.8rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-custom {
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--premium-gradient);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-light-custom {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-light-custom:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 191, 255, 0.3);
+            color: var(--secondary);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* --- Section Headings --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header .subtitle {
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* === VISI MISI SECTION === */
+        .visimisi-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visimisi-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .visimisi-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Visi Card */
+        .visi-card {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2847 100%);
+            border-radius: 28px;
+            padding: 3.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 17, 40, 0.25);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .visi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .visi-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-30%, 30%);
+        }
+
+        .visi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(10, 17, 40, 0.35);
+        }
+
+        .visi-card .visi-label {
+            display: inline-block;
+            background: rgba(0, 191, 255, 0.2);
+            color: var(--secondary);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .visi-card .visi-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--premium-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .visi-card h3 {
+            font-weight: 800;
+            font-size: 1.8rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 2;
+            letter-spacing: -0.5px;
+        }
+
+        .visi-card h3 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        /* Misi Title */
+        .misi-title-wrap {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .misi-title-wrap h3 {
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .misi-title-wrap h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--premium-gradient);
+            border-radius: 2px;
+        }
+
+        .misi-title-wrap p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Misi Layout Baru */
+        .misi-item-visual {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .misi-item-visual:last-child {
+            margin-bottom: 0;
+        }
+
+        .misi-visual-wrapper {
+            display: flex;
+            align-items: stretch;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 191, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .misi-visual-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 191, 255, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .misi-number-large {
+            flex-shrink: 0;
+            width: 140px;
+            background: var(--premium-gradient);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .misi-number-large::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+        }
+
+        .misi-number-large span {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.3);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .misi-number-large i {
+            font-size: 2.2rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .misi-content-box {
+            flex: 1;
+            padding: 2rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .misi-content-box p {
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .misi-content-box em {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Connector Line */
+        .misi-item-visual:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 70px;
+            top: 100%;
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, var(--secondary), transparent);
+            opacity: 0.3;
+        }
+
+        /* === AKHIR VISI MISI === */
+
+        /* --- Info Cards (PKA & TD) --- */
+        .info-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.8rem;
+            border: 1px solid rgba(0, 191, 255, 0.08);
+            height: 100%;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--secondary);
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.8rem;
+            background: rgba(0, 191, 255, 0.1);
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover .icon-circle {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(0, 191, 255, 0.2);
+        }
+
+        .info-card.pka .icon-circle {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--danger);
+        }
+
+        .info-card.pka:hover .icon-circle {
+            background: rgba(255, 107, 107, 0.2);
+            color: var(--danger);
+        }
+
+        .info-card.td .icon-circle {
+            background: rgba(0, 191, 255, 0.1);
+            color: var(--secondary);
+        }
+
+        .responsibility-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.8rem;
+            margin-bottom: 0;
+        }
+
+        .responsibility-list li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 14px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .responsibility-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .responsibility-list li:hover {
+            color: var(--dark);
+            transform: translateX(4px);
+        }
+
+        .responsibility-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary);
+            font-size: 14px;
+        }
+
+        .info-card.pka .responsibility-list li::before {
+            color: var(--danger);
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-section {
+            padding: 100px 0;
+            background: white;
+            position: relative;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 191, 255, 0.05);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 191, 255, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.12) rotate(2deg);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 17, 40, 0.95) 60%, rgba(10, 17, 40, 1) 100%);
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .gallery-date {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            color: var(--secondary);
+        }
+
+        /* --- Stats Section --- */
+        .stats-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fc 0%, white 100%);
+            position: relative;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            border: 1px solid rgba(0, 191, 255, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-box:hover {
+            background: white;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 191, 255, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .stat-number {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2847 100%);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(0, 191, 255, 0.15);
+        }
+
+        footer h4 {
+            color: white;
+            margin-bottom: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+            transform: translateX(4px);
+        }
+
+        footer p {
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        footer ul li {
+            margin-bottom: 12px;
+        }
+
+        footer .small {
+            opacity: 0.9;
+        }
+
+        /* --- Gallery Lightbox Modal --- */
+        #galleryModal .modal-content {
+            background: transparent;
+        }
+
+        #galleryModalImage {
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 991px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .navbar-collapse {
+                background: white;
+                padding: 1rem;
+                border-radius: 0 0 12px 12px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                margin-top: 0.5rem;
+            }
+
+            .nav-link {
+                color: var(--dark) !important;
+            }
+
+            .visi-card {
+                padding: 2.5rem;
+            }
+
+            .visi-card h3 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            .visimisi-section {
+                padding: 70px 0;
+            }
+
+            .visi-card {
+                padding: 2rem;
+            }
+
+            .visi-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .misi-visual-wrapper {
+                flex-direction: column;
+            }
+
+            .misi-number-large {
+                width: 100%;
+                padding: 1.5rem;
+                flex-direction: row;
+                gap: 1rem;
+                justify-content: flex-start;
+            }
+
+            .misi-number-large span {
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+
+            .misi-number-large i {
+                font-size: 1.5rem;
+            }
+
+            .misi-content-box {
+                padding: 1.5rem;
+            }
+
+            .misi-content-box p {
+                font-size: 1rem;
+            }
+
+            .misi-item-visual::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .misi-number-large {
+                padding: 1.2rem;
+            }
+
+            .misi-number-large span {
+                font-size: 1.5rem;
+            }
+
+            .misi-number-large i {
+                font-size: 1.2rem;
+            }
+
+            .misi-content-box p {
+                font-size: 0.95rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-bolt me-2"></i>TRANS-DIST
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#visimisi">Visi & Misi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#overview">Divisi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-pattern"></div>
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="hero-content">
+                        <span
+                            class="badge rounded-pill bg-secondary bg-opacity-25 text-white border border-secondary mb-3 px-4 py-2">
+                            <i class="fas fa-water me-2"></i>Perumdam Tirta Wijaya
+                        </span>
+                        <h1>Profesionalisme dalam<br><span style="color: var(--secondary);">Transmisi &
+                                Distribusi</span></h1>
+                        <p>Mengelola infrastruktur air bersih dengan standar teknologi tinggi, efisiensi, dan dedikasi
+                            untuk pelayanan masyarakat.</p>
+                        <a href="#overview" class="btn btn-custom btn-light-custom">
+                            Lihat Divisi Kami <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi & Misi Section -->
+    <section class="visimisi-section" id="visimisi">
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">Arah & Tujuan</span>
+                <h2>Visi & Misi</h2>
+                <p>Landasan strategis kami dalam melayani masyarakat Kabupaten Cilacap dengan air bersih berkualitas.
+                </p>
+            </div>
+
+            <!-- Visi Card -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-duration="900">
+                    <div class="visi-card">
+                        <span class="visi-label"><i class="fas fa-eye me-2"></i>Visi Perusahaan</span>
+                        <div class="visi-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Menjadi Perusahaan Penyedia Air Minum yang <span class="highlight">Maju dan Mandiri</span>
+                            dengan <span class="highlight">Pelayanan Prima</span> bagi Masyarakat Kabupaten Cilacap.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Misi Title -->
+            <div class="misi-title-wrap" data-aos="fade-up">
+                <h3>Misi Kami</h3>
+                <p>Lima pilar utama yang menjadi panduan operasional dan komitmen kami setiap hari.</p>
+            </div>
+
+            <!-- Misi Timeline Layout -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <!-- Misi 1 -->
+                    <div class="misi-item-visual" data-aos="fade-right" data-aos-delay="100">
+                        <div class="misi-visual-wrapper">
+                            <div class="misi-number-large">
+                                <span>01</span>
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <div class="misi-content-box">
+                                <p>Meningkatkan Tata Kelola Perusahaan yang Baik (<em>Good Corporate Governance</em>)
+                                    dan Kualitas Pelayanan Kepada Pelanggan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Misi 2 -->
+                    <div class="misi-item-visual" data-aos="fade-left" data-aos-delay="200">
+                        <div class="misi-visual-wrapper">
+                            <div class="misi-number-large">
+                                <span>02</span>
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </div>
+                            <div class="misi-content-box">
+                                <p>Memperluas Cakupan Pelayanan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Misi 3 -->
+                    <div class="misi-item-visual" data-aos="fade-right" data-aos-delay="300">
+                        <div class="misi-visual-wrapper">
+                            <div class="misi-number-large">
+                                <span>03</span>
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="misi-content-box">
+                                <p>Menjadikan Perusahaan Yang Maju Berbasis Teknologi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Misi 4 -->
+                    <div class="misi-item-visual" data-aos="fade-left" data-aos-delay="400">
+                        <div class="misi-visual-wrapper">
+                            <div class="misi-number-large">
+                                <span>04</span>
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="misi-content-box">
+                                <p>Memberikan Kontribusi Pada Pembangunan Daerah</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Misi 5 -->
+                    <div class="misi-item-visual" data-aos="fade-right" data-aos-delay="500">
+                        <div class="misi-visual-wrapper">
+                            <div class="misi-number-large">
+                                <span>05</span>
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="misi-content-box">
+                                <p>Meningkatkan Kompetensi / Keahlian / Ketrampilan / Kegigihan dan Profesionalisme
+                                    Pegawai</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Division Overview (PKA & TD) -->
+    <section class="py-5" id="overview">
+        <div class="container py-4">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">Unit Kerja</span>
+                <h2>Divisi Kami</h2>
+                <p>Dua sub-bagian utama yang saling berkoordinasi untuk menjaga kelancaran distribusi air.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- PKA Card -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card pka">
+                        <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        <h3>Sub Bagian PKA</h3>
+                        <p class="text-muted small text-uppercase fw-bold ls-1">Penanggulangan Kebocoran Air</p>
+                        <p class="mt-3">Tim khusus yang fokus pada penurunan tingkat kehilangan air (NRW) melalui
+                            program zoning dan DMA.</p>
+
+                        <ul class="responsibility-list">
+                            <li>Menyusun dan melaksanakan rencana kerja Sub Penanggulangan Kebocoran Air</li>
+                            <li>Mengevaluasi sistem perpipaan untuk menurunkan tingkat kebocoran air dengan program
+                                zoning, District Meter Area (DMA) serta memasang dan memelihara water meter induk</li>
+                            <li>Menyelenggarakan pemeriksaan dan pengukuran akurasi water meter pelanggan sesuai
+                                kewenangannya</li>
+                            <li>Melakukan analisa pemakaian air untuk mengetahui tingkat kebocoran air masing-masing
+                                cabang</li>
+                            <li>Menyelenggarakan pemantauan dan analisa penggantian meter air pelanggan</li>
+                            <li>Menyusun laporan hasil kegiatan sesuai wewenang, tugas, dan tanggung jawab secara
+                                periodik</li>
+                            <li>Melaporkan dan bertanggung jawab atas pelaksanaan tugas kepada Kepala Bagian Transmisi
+                                dan Distribusi</li>
+                            <li>Menyelenggarakan tugas-tugas lain yang berhubungan dengan aktifitas Perusahaan, yang
+                                diberikan oleh Kepala Bagian Transmisi dan Distribusi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- TD Card -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card td">
+                        <div class="icon-circle"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3>Sub Bagian T-D</h3>
+                        <p class="text-muted small text-uppercase fw-bold ls-1">Transmisi & Distribusi</p>
+                        <p class="mt-3">Tim ahli dalam pengelolaan data geospasial, pemetaan jaringan, dan integrasi
+                            teknologi drone.</p>
+
+                        <ul class="responsibility-list">
+                            <li>Menyusun dan melaksanakan rencana kerja Sub Bagian Transmisi dan Distribusi</li>
+                            <li>Melaksanakan pengelolaan program Sistem Informasi Geografis (Geographic Information
+                                System / GIS) Perumdam</li>
+                            <li>Melakukan pengelolaan dan pengolahan data survey atau pemetaan dengan menggunakan
+                                Drone</li>
+                            <li>Menyusun laporan hasil kegiatan sesuai wewenang, tugas dan tanggung jawab secara
+                                periodik</li>
+                            <li>Melaporkan dan bertanggung jawab atas pelaksanaan tugasnya kepada Kepala Bagian
+                                Transmisi dan Distribusi</li>
+                            <li>Melaksanakan tugas-tugas lain yang berhubungan dengan aktifitas perusahaan, yang
+                                diberikan oleh Kepala Bagian Transmisi dan Distribusi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">Dokumentasi</span>
+                <h2>Gallery Kegiatan</h2>
+                <p>Momen-momen operasional dan kebersamaan tim kami.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                    data-img="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=1200&auto=format&fit=crop"
+                    data-title="Inspeksi Pipa" data-date="15 Januari 2026">
+                    <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=400&auto=format&fit=crop"
+                        alt="Inspeksi Pipa" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Inspeksi Pipa</div>
+                        <div class="gallery-date">15 Januari 2026</div>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                    data-img="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop"
+                    data-title="Maintenance" data-date="20 Januari 2026">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=400&auto=format&fit=crop"
+                        alt="Maintenance" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Maintenance</div>
+                        <div class="gallery-date">20 Januari 2026</div>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                    data-img="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
+                    data-title="Koordinasi Tim" data-date="25 Januari 2026">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=400&auto=format&fit=crop"
+                        alt="Koordinasi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Koordinasi Tim</div>
+                        <div class="gallery-date">25 Januari 2026</div>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                    data-img="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1200&auto=format&fit=crop"
+                    data-title="Survey Drone" data-date="30 Januari 2026">
+                    <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=400&auto=format&fit=crop"
+                        alt="Survey Drone" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Survey Drone</div>
+                        <div class="gallery-date">30 Januari 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4><i class="fas fa-bolt me-2"></i>TRANS-DIST</h4>
+                    <p class="small">Mengelola sistem transmisi dan distribusi air bersih dengan mengedepankan
+                        teknologi dan pelayanan prima.</p>
+                    <div class="mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Kontak Kami</h4>
+                    <p class="small mb-2"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Jl. Mt. Haryono
+                        No. 16, Cilacap</p>
+                    <p class="small mb-2"><i class="fas fa-envelope me-2 text-secondary"></i>
+                        info@transdist.perumdam.id</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Tautan Cepat</h4>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#home">Beranda</a></li>
+                        <li class="mb-2"><a href="#visimisi">Visi & Misi</a></li>
+                        <li class="mb-2"><a href="#overview">Tentang Divisi</a></li>
+                        <li class="mb-2"><a href="#gallery">Gallery Kegiatan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4">
+            <div class="text-center small">
+                &copy; 2026 Bagian Transmisi & Distribusi. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal (Lightbox) -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0 shadow-none">
+                <div class="modal-body p-0 position-relative">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3"
+                        data-bs-dismiss="modal" aria-label="Close" style="background: rgba(0,0,0,0.5);"></button>
+                    <img src="" id="galleryModalImage" class="w-100 rounded-3 shadow-lg" alt="">
+                    <div class="text-center text-white mt-3">
+                        <div class="fw-bold fs-5" id="galleryModalTitle"></div>
+                        <div class="small text-secondary" id="galleryModalDate"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS (scroll animation)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar styling on scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                navbar.style.boxShadow = 'none';
+                navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+            }
+        });
+
+        // Gallery Lightbox
+        const galleryModalEl = document.getElementById('galleryModal');
+        const galleryModalImage = document.getElementById('galleryModalImage');
+        const galleryModalTitle = document.getElementById('galleryModalTitle');
+        const galleryModalDate = document.getElementById('galleryModalDate');
+
+        document.querySelectorAll('.gallery-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.getAttribute('data-img');
+                const title = item.getAttribute('data-title') || '';
+                const date = item.getAttribute('data-date') || '';
+
+                galleryModalImage.src = imgSrc;
+                galleryModalImage.alt = title;
+                galleryModalTitle.textContent = title;
+                galleryModalDate.textContent = date;
+            });
+        });
+
+        galleryModalEl.addEventListener('hidden.bs.modal', () => {
+            galleryModalImage.src = '';
+        });
+
+        // Scrollspy ringan
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function setActiveLink() {
+            let currentSectionId = '';
+            const scrollPos = window.scrollY + 150;
+
+            sections.forEach((section) => {
+                if (scrollPos >= section.offsetTop) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink();
+
+    </script>
+</body>
+
+</html>
